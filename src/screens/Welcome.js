@@ -8,10 +8,10 @@ const Welcome = () => {
       <Text style={styles.wecomeText}>Welcome To MeetX</Text>
       <View style={{height: '80%', width: '80%'}}>
         <Image source={require('../assets/logo.png')} style={styles.logoImg} />
-        <Divider style={{width: '100%'}} />
+        <Divider style={{width: '100%',marginTop:20}} />
         <View >
         <Text style={styles.tagLine}>fast. fresh. delicious.</Text>
-        <Divider style={{width: '100%'}} />
+        <Divider style={{width: '100%',marginTop:20}} />
       </View>
       <View style={styles.btn}>
       <TouchableOpacity>
@@ -59,11 +59,16 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     textTransform: 'uppercase',
-    color:"#ffffff"
+    color:"#ffffff",
+    justifyContent:"center",
+    alignItems:"center",
+    marginTop:20,
+    
+    
   },
   btn: {
     flexDirection: 'row',
-     marginVertical:180,
+     marginVertical:120,
     justifyContent:"space-around",
     
     
