@@ -2,10 +2,9 @@ import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Divider, Button} from 'react-native-paper';
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   return (
     <View style={styles.container}>
-
       <Text style={styles.wecomeText}>Welcome To MeetX</Text>
       <Text style={{fontSize: 20, color: '#ffffff', fontWeight: '800'}}>
         coffee & pizza
@@ -18,13 +17,12 @@ const Welcome = () => {
           <Divider style={{width: '100%', marginTop: 20}} />
         </View>
 
-
         <View style={styles.btn}>
-          <TouchableOpacity>
-            <Text style={styles.btnTex}>LOG IN</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('Signup')}>
+            <Text style={styles.btnTex}>Sign Up</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.btnTex}>SIGN UP</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
+            <Text style={styles.btnTexlogin}>Log In</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -38,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     //  flex: 1,
     //  display:"flex",
-    backgroundColor: '#001a00',
+    backgroundColor: '#0c2c41',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
@@ -76,12 +74,20 @@ const styles = StyleSheet.create({
   },
   btnTex: {
     backgroundColor: '#ffffff',
-    color: '#001a00',
-    paddingHorizontal: 30,
-    paddingVertical: 20,
+    color: '#1c6897',
+    padding: 20,
+    paddingVertical: 15,
     borderRadius: 20,
-
-    fontSize: 20,
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+  btnTexlogin: {
+    backgroundColor: '#ffffff',
+    color: '#1c6897',
+    padding: 30,
+    paddingVertical: 15,
+    borderRadius: 20,
+    fontSize: 25,
     fontWeight: 'bold',
   },
 });

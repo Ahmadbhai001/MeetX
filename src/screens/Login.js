@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {TextInput, Divider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [emailfocus, setEmailfocus] = useState(false);
   const [passwordfocus, setPasswordfocus] = useState(false);
   return (
@@ -15,7 +15,7 @@ const Login = () => {
           fontWeight: 'bold',
           marginBottom: 20,
         }}>
-        Sign In
+        Log In
       </Text>
       <View style={styles.textInputContainer}>
         <TextInput
@@ -60,45 +60,60 @@ const Login = () => {
       </View>
       <View style={styles.btn}>
         <TouchableOpacity>
-          <Text style={styles.btnTex}>SIGN IN</Text>
+          <Text style={styles.btnTex}>Login In</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.forgot}>Forgot Password</Text>
       <Text style={styles.or}>OR</Text>
       <Text style={styles.Sinwith}>Sign in with</Text>
-      
+
       {/* Icons */}
       <View>
-     
-        
         <TouchableOpacity style={styles.facebookBtn}>
           <Icon
             name="facebook"
-            iconColor="white"
+            // iconColor="white"
+            color='#ffffff'
             size={30}
             style={{paddingHorizontal: 10, paddingVertical: 5}}
           />
-          <Text style={{fontSize: 20, paddingRight: 10 , fontWeight:"800",color:"#ffffff"}}>
+          <Text
+            style={{
+              fontSize: 20,
+              paddingRight: 10,
+              fontWeight: '800',
+              color: '#ffffff',
+            }}>
             Sign with Facebook
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.googleBtn}>
           <Icon
             name="google"
-            color="#001a00"
+            color="#1c6897"
             size={30}
             style={{paddingHorizontal: 10, paddingVertical: 5}}
           />
-          <Text style={{fontSize: 20, paddingRight: 10,color:"#001a00", fontWeight:"800" }}>
+          <Text
+            style={{
+              fontSize: 20,
+              paddingRight: 10,
+              color: '#1c6897',
+              fontWeight: '800',
+            }}>
             Sign with Google
           </Text>
         </TouchableOpacity>
       </View>
-      <Divider style={{width: '100%', marginTop: 20}} />
+      <Divider style={{width: '80%', marginTop: 20}} />
       <View>
-      <Text style={{fontSize: 15,fontWeight:"500"}}>Dont's have an account
-      <Text style={{fontSize: 18,fontWeight:"800" ,color:"#ffffff"}}> Sign Up</Text>
-      </Text>
+        <Text style={{fontSize: 15, fontWeight: '500',}}>
+          Dont's have an account 
+          <Text style={{fontSize: 18, fontWeight: '800', color: '#ffffff', }} onPress={()=>navigation.navigate('Signup')} >
+          {' '}{' '}
+            Sign Up
+          </Text>
+        </Text>
       </View>
     </View>
   );
@@ -111,23 +126,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#001a00',
+    backgroundColor: '#0c2c41',
   },
   textInputContainer: {
     width: '90%',
     margin: 10,
   },
   textinput: {
-    borderBottomRightRadius: 20,
+    // Radius: 20,
   },
   btn: {
-     marginTop: 10,
+    marginTop: 10,
     justifyContent: 'center',
     width: '100%',
   },
   btnTex: {
     backgroundColor: '#ffffff',
-    color: '#001a00',
+    color: '#1c6897',
     marginRight: 30,
     marginLeft: 30,
     borderRadius: 20,
@@ -158,14 +173,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#4267B2',
     borderRadius: 10,
     marginTop: 10,
-    elevation:20,
-    
+    elevation: 20,
   },
-  googleBtn:{
+  googleBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#e6ffe6',
     borderRadius: 10,
     marginTop: 10,
-  }
+  },
 });
