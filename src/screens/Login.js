@@ -193,6 +193,6 @@ paddingTop:5,
     alignItems: 'center',
     backgroundColor: '#e6ffe6',
     borderRadius: 10,
-    marginTop: 5,
+    marginTop: 8,
   },
 });
