@@ -10,8 +10,12 @@ const App = () => {
   return (
     
 
-<RootNavigations/>
-    
+       <RootNavigations/> 
+
+
+   
+
+   
     
   )
 }
