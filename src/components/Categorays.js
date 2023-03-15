@@ -69,7 +69,7 @@ export default Categorays;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#1c6697',
-    width: '90%',
+    width: '100%',
     elevation: 10,
     borderRadius: 10,
   },

@@ -1,11 +1,27 @@
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeHeader from '../components/HomeHeader';
 import Categorays from '../components/Categorays';
 import Slider from '../components/Slider';
 import { Searchbar } from 'react-native-paper';
 
+import { firebase } from '../Firebase/FirebaseConfig';
+import Cardslider from '../components/Cardslider';
+
 const HomeScreen = () => {
+  const[foodData, setFoodData] = useState([]);
+  const foodRef= firebase.firestore().collection("FoodData")
+
+  useEffect(()=>{
+    foodRef.onSnapshot(snapshot=>{
+      setFoodData(snapshot.docs.map(doc=>doc.data()))
+    })
+  },[])
+  useEffect(()=>{
+
+  },[foodData])
+
+  // console.log(foodData);
   return (
     <View style={styles.container}>
       <StatusBar />
@@ -23,6 +39,7 @@ const HomeScreen = () => {
       </View>
       <Categorays />
       <Slider />
+      <Cardslider title={"Today's Special "} data={foodData}/>
       
     </View>
   );
@@ -35,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 5,
     backgroundColor: '#0c2c41',
-    alignItems: 'center',
+    // alignItems: 'center',
     width:"100%",
   },
   searchContainer:{
